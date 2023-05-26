@@ -1,8 +1,11 @@
 <template>
     <div class="navbar" :class="mode">
-        <button class="btn">
-            <i class="fa-brands fa-searchengin"></i>
-        </button>
+        <router-link to="/search">
+            <button class="btn">
+                <i class="fa-brands fa-searchengin"></i>
+            </button>
+        </router-link>
+
         <router-link to="/">
             <button class="btn">
                 <i class="fa fa-close"></i>
@@ -29,6 +32,11 @@
     import { mapState } from 'vuex';
 
     export default {
+        data() {
+            return {
+                isSearchBarVisible: false
+            };
+        },
         computed: {
             ...mapState(['mode'])
         },
