@@ -32,11 +32,6 @@
     import { mapState } from 'vuex';
 
     export default {
-        data() {
-            return {
-                isSearchBarVisible: false
-            };
-        },
         computed: {
             ...mapState(['mode'])
         },
