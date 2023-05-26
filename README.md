@@ -18,4 +18,18 @@ Is a task management application that allows to browse a calendar, create and ch
 - Paste all files from your clone to new App environment by replacing: <b> whole src folder and index.html file </b> 
 - Run ```npm run dev``` and follow your localhost link to preview and work on app
 
+## Working on task
+- In your task on github choose "create a branch" and setup the name of your branch with your name and surname. Make sure you have "checkout locally" option selected.
+- In your local repository run ```git fetch origin ``` and ``` git checkout your-branch-name```
+- Edit whatever files you need to accomplish your task.
+
+## Commiting changes
+- Run ``` git status ``` to see modified and added files.
+- Run ```git add file-name``` ex. ```git add src/components/HelpPage.vue``` You can add ONLY FILES WITH OUR APP, not files with your environment! So you can update index.html and files that are only in your /src folder!
+- Run ``` git commit -m "Your commit short message"```
+- Run ```git push origin your-branch```, ex. ```git push origin kingamadej-home```
+- Then go to github repository and compare your changes to master branch. Select "Compare & Pull Request". Then select the branch you want to merge your changes to in the "base" section, and then the branch that contains your changes in the "compare" section. Usually "base" will be  master branch and "compere" will be the branch you worked on.
+- Select "Create pull request" and then create name and description. 
+- Wait for Code Owner review to check and merge your changes. Do NOT click "Merge without waiting for requirements to be met (bypass branch protections)", otherwise we can lose our whole project.
+
 
