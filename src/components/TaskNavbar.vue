@@ -5,9 +5,12 @@
             <button class="btn-1">Notatki</button>
         </div>
         <div class="right-buttons">
-            <button class="btn">
-                <i class="fa-brands fa-searchengin"></i>
-            </button>
+            <router-link to="/search">
+                <button class="btn">
+                    <i class="fa-brands fa-searchengin"></i>
+                </button>
+            </router-link>
+
             <router-link to="/settings">
                 <button class="btn">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -20,9 +23,14 @@
 <script>
 import { mapState } from 'vuex';
     export default {
+        data() {
+            return {
+                isSearchBarVisible: false
+            };
+        },
         computed: {
             ...mapState(['mode'])
-        }
+        },
     };
 </script>
 
@@ -56,4 +64,5 @@ import { mapState } from 'vuex';
         background-color: white;
         color: #009900;
     }
+
 </style>

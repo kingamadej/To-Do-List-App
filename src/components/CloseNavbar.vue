@@ -1,5 +1,6 @@
 <template>
     <div class="navbar" :class="mode">
+        <slot name="search-input"></slot>
         <router-link to="/">
             <button class="btn">
                 <i class="fa fa-close"></i>
