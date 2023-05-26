@@ -2,7 +2,7 @@
 
 Is a task management application that allows to browse a calendar, create and check off tasks, create notes, and link notes with tasks, which becomes the uniqe functionality in our app.
 
-## Envirnment Setup
+## Environment Setup
 - You need Windows 10 or newer
 - Make sure you have https://nodejs.org and ```npm``` installed
 - Visual Studio Code is recommended editor 
