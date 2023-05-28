@@ -11,7 +11,7 @@
         <input type="password" id="password" v-model="password" required placeholder="hasło">
       </div>
       <button type="submit" :class="mode">Zaloguj się</button>
-      <small><router-link to="/ResetPage">Nie pamiętasz hasła?</router-link></small>
+      <small><router-link to="/reset">Nie pamiętasz hasła?</router-link></small>
     </form>
   </div>
 </template>
@@ -45,6 +45,7 @@ export default {
     background-color: #0099FF;
   }
 .login-container {
+  max-width: 445px;
   min-width: 490px;
   margin: 0 auto;
   padding: 20px;
