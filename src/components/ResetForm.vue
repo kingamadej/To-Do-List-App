@@ -1,17 +1,28 @@
 <template>
-    <div class="reset-container">
-      <h3>Resetowanie hasła</h3>
-      <form @submit.prevent="submitForm">
-        <div class="form-group">
-          <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i></label>
-          <input type="email" id="email" v-model="email" required placeholder="email.example.com">
-        </div>
-        <button type="submit" :class="mode">Zresetuj hasło</button>
-        <small>
+    <div>
+      <div class="reset-container">
+        <h3>Resetowanie hasła</h3>
+        <form @submit.prevent="submitForm">
+          <div class="form-group">
+            <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i></label>
+            <input type="email" id="email" v-model="email" required placeholder="email@example.com">
+          </div>
+          <button type="submit" :class="mode">Zresetuj hasło</button>
+          <small>
             Powyżej podaj adres e-mail, przypisany do konta w naszej aplikacji, na który możemy wysłać link do zmiany hasła.
-        </small>
-    </form>
-
+          </small>
+        </form>
+      </div>
+      <div class="router-links">
+        <router-link to="/login" class="button" :class="mode">
+          <span class="button-text">Zaloguj się</span>
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </router-link>
+        <router-link to="/register" class="button" :class="mode">
+          <span class="button-text">Utwórz konto</span>
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </router-link>
+      </div>
     </div>
   </template>
   
@@ -89,6 +100,33 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.button-text {
+  margin-right: 5px;
+}
+
+.fa {
+  margin-left: 5px;
+}
+
+.router-links {
+  text-align: center;
+  margin-top: 15px;
 }
 small{
     margin-top: 15px;

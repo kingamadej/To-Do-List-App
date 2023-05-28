@@ -54,6 +54,21 @@ export default {
 .active-green {
     color: #009900;
 }
+.button {
+  display: block;
+  width: 200px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
 
+.router-links {
+  text-align: center;
+}
 
 </style>
