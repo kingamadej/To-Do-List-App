@@ -14,7 +14,7 @@
         </form>
       </div>
       <div class="router-links">
-        <router-link to="/login" class="button" :class="mode">
+        <router-link to="/" class="button" :class="mode">
           <span class="button-text">Zaloguj się</span>
           <i class="fa fa-user" aria-hidden="true"></i>
         </router-link>
