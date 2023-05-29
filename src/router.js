@@ -10,6 +10,7 @@ import NotesPage from './components/NotesPage.vue'
 import NewNotePage from './components/NewNotePage.vue'
 import RegisterPage from './components/RegisterPage.vue'
 import ResetPage from './components/ResetPage.vue'
+import EditNotePage from './components/EditNotePage.vue'
 
 const routes = [
   { path: '/tasks', component: HomePage },
@@ -23,6 +24,7 @@ const routes = [
   { path: '/new-note', component: NewNotePage },
    { path: '/register', component: RegisterPage },
   { path: '/reset', component: ResetPage },
+  { path: '/edit-note', component: EditNotePage },
 ]
 
 const router = createRouter({

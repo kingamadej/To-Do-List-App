@@ -50,9 +50,9 @@ export default {
     data() {
       return {
         tasks: [
-          { id: 1, checked: true, content: 'Task 1', hour: '6:00', date: '25.05.2023'},
-          { id: 2, checked: false, content: 'Task 2', hour: '7:00', date: '26.05.2023'},
-          { id: 3, checked: false, content: 'Task 3', hour: '8:00', date: '27.05.2023' },
+          { id: 1, checked: true, content: 'Task 1', hour: '6:00', date: '30.05.2023'},
+          { id: 2, checked: false, content: 'Task 2', hour: '7:00', date: '1.06.2023'},
+          { id: 3, checked: false, content: 'Task 3', hour: '8:00', date: '2.06.2023' },
           // symulacja bazy danych, przekazuje odpowiednią godzinę, datę i content do treści TaskDone i TaskToDo
           // przy pisaniu backendu trzeba będzie zadbać o status zadania: checked - flase lub true, i updatetować ten stan do bazy danych - wtedy również status zadania zostanie automatycznie "zapamiętany", nawet przy odświeżeniu strony, czy ponownym zalogowaniu. 
         ]

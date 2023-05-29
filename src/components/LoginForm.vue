@@ -1,13 +1,13 @@
 <template>
   <div class="login-container">
-    <h3>Zaloguj się</h3>
+    <h3 style="color: #a6a6a6;">Zaloguj się</h3>
     <form @submit.prevent="submitForm">
       <div class="form-group">
-        <label for="name"><i class="fa fa-user" aria-hidden="true"></i></label>
+        <label for="name"><i class="fa fa-user" aria-hidden="true" style="color: #a6a6a6;"></i></label>
         <input type="text" id="login" v-model="login" required placeholder="login">
       </div>
       <div class="form-group">
-        <label for="password"><i class="fa fa-key" aria-hidden="true"></i></label>
+        <label for="password"><i class="fa fa-key" aria-hidden="true" style="color: #a6a6a6;"></i></label>
         <input type="password" id="password" v-model="password" required placeholder="hasło">
       </div>
       <button type="submit" :class="mode">Zaloguj się</button>

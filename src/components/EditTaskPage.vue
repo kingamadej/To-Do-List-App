@@ -1,102 +1,102 @@
 <template>
-    <div>
-      <CloseNavbar :mode="mode" />
-    </div>
-    <div class="container">
-      <div class="opcje">
-        <form action="">
+  <div>
+    <TaskViewNavbar :mode="mode" />
+  </div>
+  <div class="container">
+    <div class="opcje">
+      <form action="">
 
-          <div class="star-checkbox">
-            <input type="checkbox" id="starCheckbox" v-model="checked"/>
-            <label for="starCheckbox">
-                <i class="fas fa-star" :style="{ 'color' : checked ? '#ffcc00' : 'inherit' }"></i>                    
-            </label>
-          </div>
-              
+        <div class="star-checkbox">
+          <input type="checkbox" id="starCheckbox" v-model="checked"/>
+          <label for="starCheckbox">
+              <i class="fas fa-star" :style="{ 'color' : checked ? '#ffcc00' : 'inherit' }"></i>                    
+          </label>
+        </div>
+            
 
 
-          <div class="textarea">
-            <input type="text" placeholder="Zrobić pranie"> <!--tu ma się wyświetlić tytuł edytowanego taska-->
-            <Line />
-          </div>
-
-          <div class="textarea">
-            <input type="datetime-local" value="2023-05-27T12:00" @change="updateDate($event)"><!--tu ma się wyświetlić data edytowanego taska, możliwość jej zmiany robie już vue-->
-            <Line />
-          </div>
-
-          <div class="textarea">
-            <textarea  rows=4 maxlength="300" placeholder="Zrobić pranie zamin przyjadą goście"></textarea> <!--tu ma się wyświetlić opis edytowanego taska-->
-            <Line />
-          </div>
-
-          <div class="textarea">
-            <input type="search" placeholder="Przypisz notatki"><!--tu mają się wyświetlić przypisane notatki-->
-            <Line />
-          </div>
-          
-          <div class="textarea">
-            <input type="submit" value="Zapisz"><!--update zedytowanego taska do bazy danych-->
-          </div>
-        </form>
-
-        <div class="OtherActivities" :class="{ 'active-blue': mode === 'blue', 'active-green': mode === 'green' }">
+        <div class="textarea">
+          <input type="text" placeholder="Zrobić pranie"> <!--tu ma się wyświetlić tytuł edytowanego taska-->
           <Line />
-          <p>{{ dateToShow }} - inne plany na wybrany dzień:</p><!--tu mają się wyświetlić inne plany na ten sam dzień co data edytowanego taska, przy ewentualnym zmianie daty (obsługiwanym już przy pomocy vue) mają się zmienić pokazywane taski-->
-
-          <div v-for="task in tasksForDate()" :key="task.id">
-            <TaskToDo v-if="!task.checked" :task="task" />
-            <TaskDone v-else :task="task" />
-          </div>
-
         </div>
 
+        <div class="textarea">
+          <input type="datetime-local" value="2023-05-27T12:00" @change="updateDate($event)"><!--tu ma się wyświetlić data edytowanego taska, możliwość jej zmiany robie już vue-->
+          <Line />
+        </div>
+
+        <div class="textarea">
+          <textarea  rows=4 maxlength="300" placeholder="Zrobić pranie zamin przyjadą goście"></textarea> <!--tu ma się wyświetlić opis edytowanego taska-->
+          <Line />
+        </div>
+
+        <div class="textarea">
+          <input type="search" placeholder="Przypisz notatki"><!--tu mają się wyświetlić przypisane notatki-->
+          <Line />
+        </div>
         
+        <div class="textarea">
+          <input type="submit" value="Zapisz zmiany"><!--update zedytowanego taska do bazy danych-->
+        </div>
+      </form>
+
+      <div class="OtherActivities" :class="{ 'active-blue': mode === 'blue', 'active-green': mode === 'green' }">
+        <Line />
+        <p>{{ dateToShow }} - inne plany na wybrany dzień:</p><!--tu mają się wyświetlić inne plany na ten sam dzień co data edytowanego taska, przy ewentualnym zmianie daty (obsługiwanym już przy pomocy vue) mają się zmienić pokazywane taski-->
+
+        <div v-for="task in tasksForDate()" :key="task.id">
+          <TaskToDo v-if="!task.checked" :task="task" />
+          <TaskDone v-else :task="task" />
+        </div>
+
       </div>
-    </div> 
+
+      
+    </div>
+  </div> 
 
 </template>
 
 
 <script>
-import CloseNavbar from './CloseNavbar.vue';
 import TaskToDo from './TaskToDo.vue';
 import TaskDone from './TaskToDo.vue';
 import Line from './Line.vue';
 import { mapMutations, mapState } from 'vuex';
+import TaskViewNavbar from './TaskViewNavbar.vue';
 
 export default {
-  components: {
-    CloseNavbar,
-    Line,
-    TaskToDo,
-    TaskDone,
-  },
-  computed: {
+components: {
+  Line,
+  TaskToDo,
+  TaskDone,
+  TaskViewNavbar
+},
+computed: {
 // użyj funkcji mapState, aby pobierać wartość 'mode' z Vuex store
 ...mapState(['mode']),
 },
 data() {
-    return {
-        dateToShow: '',
-        dateToShow: '',
-        checked: false,
-    tasks: [
-      { id: 1, checked: true, content: 'Task 1', hour: '6:00', date: '25.05.2023'},
-      { id: 2, checked: false, content: 'Task 2', hour: '7:00', date: '26.05.2023'},
-      { id: 3, checked: false, content: 'Task 3', hour: '8:00', date: '27.05.2023' },
-    ],
-    };
+  return {
+      dateToShow: '',
+      dateToShow: '',
+      checked: false,
+  tasks: [
+    { id: 1, checked: true, content: 'Task 1', hour: '6:00', date: '25.05.2023'},
+    { id: 2, checked: false, content: 'Task 2', hour: '7:00', date: '26.05.2023'},
+    { id: 3, checked: false, content: 'Task 3', hour: '8:00', date: '27.05.2023' },
+  ],
+  };
 },
 methods: {
-    // ...
-    updateDate(event) {
-        let date = new Date(event.target.value);
-        this.dateToShow = date.toLocaleDateString();
-    },
-    tasksForDate() {
-    return this.tasks.filter(task => task.date === this.dateToShow);
-  }
+  // ...
+  updateDate(event) {
+      let date = new Date(event.target.value);
+      this.dateToShow = date.toLocaleDateString();
+  },
+  tasksForDate() {
+  return this.tasks.filter(task => task.date === this.dateToShow);
+}
 }
 };
 </script>
@@ -129,9 +129,9 @@ display: none;
 }
 
 .star-checkbox label {
-  display: inline-block;
-  color:#A6A6A6;
-  cursor: pointer;
+display: inline-block;
+color:#A6A6A6;
+cursor: pointer;
 }
 
 
