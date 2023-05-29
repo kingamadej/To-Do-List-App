@@ -1,10 +1,13 @@
 <template>
-    <div class="question1">
+    <div class="question1" style="color: #808080;">
         <div class="header">
-        <div :class="{ 'active-blue': mode === 'blue', 'active-green': mode === 'green' }" class="title">Wylogowanie się z aplikacji</div><AngleDown @click="toggleElement"/>
+        <div :class="{ 'active-blue': mode === 'blue', 'active-green': mode === 'green' }" class="title">
+            Wylogowanie się z aplikacji
+        </div>
+        <AngleDown @click="toggleElement"/>
         </div>
         <Line />
-            <div class="answer" v-if="isVisible">Aby dodać wylogować się z aplikacji
+            <div class="answer" v-if="isVisible">Aby wylogować się z aplikacji
             musimy przejść do ekranu opcji, które znajdują 
             się w prawym górnym rogu strony głównej
             pod ikonką trzech kropek. <br> <br>
