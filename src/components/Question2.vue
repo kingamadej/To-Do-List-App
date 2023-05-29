@@ -1,7 +1,10 @@
 <template>
-    <div class="question1">
+    <div class="question1" style="color: #808080;">
         <div class="header">
-        <div :class="{ 'active-blue': mode === 'blue', 'active-green': mode === 'green' }" class="title">Jak dodać nowe zadanie ?</div><AngleDown @click="toggleElement"/>
+        <div :class="{ 'active-blue': mode === 'blue', 'active-green': mode === 'green' }" class="title">
+            Jak dodać nowe zadanie?
+        </div>
+        <AngleDown @click="toggleElement"/>
         </div>
         <Line />
             <div class="answer" v-if="isVisible">Aby dodać nowe zadanie musimy zacząć od
