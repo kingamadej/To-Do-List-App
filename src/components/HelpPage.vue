@@ -13,25 +13,39 @@
         </router-link>
     </div>
 
-    <!--todo
-        Here you should add components such as: gray lines (Line.vue), down arrows (this component should be created), individual questions - I suggest creating each question as a separate component, e.g. Question1.vue, Question2.vue etc.
+    <div class="questions">  
 
-         Important! Question titles must change color as the leading color changes. So remember to add :class="mode"
+        <Question1 :mode="mode" />
 
-         What questions to add? You have to invent them. Put yourself in the shoes of a user who does not know the application - what questions would he ask? And then put yourself in the shoes of the programmer of this application and write the answers to these questions.
+        <Question2 :mode="mode" />
 
-         You must create min. 5 questions with answers.
+        <Question3 :mode="mode" />
 
-         Remember that according to the design in figma, the questions are to expand when you click on the arrows and close when you click them again.
+        <Question4 :mode="mode" />
 
-         In the README file I added quick info on how to run the program and clone the repository. 
-    -->
+        <Question5 :mode="mode" />
+        
+    </div>
+
+
 </template>
 
 <script>
+    import Question1 from './Question1.vue';
+    import Question2 from './Question2.vue';
+    import Question3 from './Question3.vue';
+    import Question4 from './Question4.vue';
+    import Question5 from './Question5.vue';
     import { mapState } from 'vuex';
 
     export default {
+        components: {
+        Question1,
+        Question2,
+        Question3,
+        Question4,
+        Question5,
+      },
         computed: {
             ...mapState(['mode'])
         },
@@ -56,4 +70,12 @@
         justify-content: flex-end;
         align-items: center;
     }
+    .questions {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+   }
 </style>
