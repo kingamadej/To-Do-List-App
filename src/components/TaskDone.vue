@@ -7,6 +7,10 @@
         <!--opcjonalnie gwiazdka-->
         <div class="star-wrapper">
           <label class="star-label"><i class="fa-solid fa-star" style="color: #8C8C8C;"></i></label>
+          <router-link to="/edit-task">
+            <i class="fa-regular fa-pen-to-square" style="color: #8C8C8C; margin-left: 5px;"></i>
+          </router-link>
+          <i class="fa-solid fa-trash" style="color: #8C8C8C; margin-left: 7px;"></i>
         </div>
       </div>
       <Line />
