@@ -1,8 +1,14 @@
 <template>
     <div class="navbar" :class="mode">
         <div class="left-buttons">
-            <button class="btn-1" :class="{ 'active-blue': mode === 'blue', 'active-green': mode === 'green' }">Zadania</button>
-            <button class="btn-1">Notatki</button>
+            <router-link to="/tasks">
+                <button class="btn-1" :class="{ 'active-blue': mode === 'blue', 'active-green': mode === 'green' }">Zadania</button>
+            </router-link>
+            
+            <router-link to="/notes">
+                <button class="btn-1">Notatki</button>
+            </router-link>
+            
         </div>
         <div class="right-buttons">
             <router-link to="/search">

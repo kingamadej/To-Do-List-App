@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CloseNavbar :mode="mode" />
+    <NoteNavbar :mode="mode" />
   </div>
   <div class="container">
     <div class="opcje">
@@ -63,6 +63,7 @@ import CloseNavbar from './CloseNavbar.vue';
 import TaskToDo from './TaskToDo.vue';
 import TaskDone from './TaskToDo.vue';
 import Line from './Line.vue';
+import NoteNavbar from './NoteNavbar.vue';
 import { mapMutations, mapState } from 'vuex';
 
 export default {
@@ -71,6 +72,7 @@ components: {
   Line,
   TaskToDo,
   TaskDone,
+  NoteNavbar,
 },
 computed: {
 // użyj funkcji mapState, aby pobierać wartość 'mode' z Vuex store

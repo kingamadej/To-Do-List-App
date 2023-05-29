@@ -1,7 +1,7 @@
 <template>
     <div class="navbar" :class="mode">
         <slot name="search-input"></slot>
-        <router-link to="/tasks">
+        <router-link to="/notes">
             <button class="btn">
                 <i class="fa fa-close"></i>
             </button>

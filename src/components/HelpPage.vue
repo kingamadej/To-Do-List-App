@@ -6,7 +6,7 @@
             </button>
         </router-link>
 
-        <router-link to="/">
+        <router-link to="/tasks">
             <button class="btn">
                 <i class="fa fa-close"></i>
             </button>
