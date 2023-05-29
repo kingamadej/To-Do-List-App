@@ -10,7 +10,6 @@
                     <i class="fa-brands fa-searchengin"></i>
                 </button>
             </router-link>
-
             <router-link to="/settings">
                 <button class="btn">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
