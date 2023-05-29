@@ -1,7 +1,7 @@
 <template>
     <div class="navbar" :class="mode">
         <slot name="search-input"></slot>
-        <router-link to="/notes">
+        <router-link to="/tasks">
             <button class="btn" @click.prevent="showAlert">
                 <i class="fa fa-close"></i>
             </button>
@@ -18,10 +18,10 @@
         },
         methods: {
             showAlert(event) {
-                if (!confirm("Czy na pewno chcesz opuścić edycję notatki bez zapisu?")) {
+                if (!confirm("Czy na pewno chcesz opuścić edycję zadania bez zapisu?")) {
                     event.preventDefault();
                 } else {
-                    this.$router.push('/notes');
+                    this.$router.push('/tasks');
                 }
             },
         },

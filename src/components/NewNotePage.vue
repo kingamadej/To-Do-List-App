@@ -6,32 +6,21 @@
     <div class="opcje">
       <form action="">
 
-        <div class="star-checkbox">
-          <input type="checkbox" id="starCheckbox" v-model="checked"/>
-          <label for="starCheckbox">
-              <i class="fas fa-star" :style="{ 'color' : checked ? '#ffcc00' : 'inherit' }"></i>                    
-          </label>
-        </div>
-            
-
-
         <div class="textarea">
           <input type="text" placeholder="Dodaj tytuł">
           <Line />
         </div>
 
         <div class="textarea">
+          <textarea  rows=6 maxlength="1000" placeholder="Zacznij pisać..."></textarea>
+          <Line />
+        </div>
+
+        <div class="textarea">
+          <p style="color: #a6a6a6; font-weight: 400;">Przypisz zadania, wybierając datę</p>
+        </div>
+        <div class="textarea">
           <input type="datetime-local" @change="updateDate($event)">
-          <Line />
-        </div>
-
-        <div class="textarea">
-          <textarea  rows=4 maxlength="300" placeholder="Opis"></textarea>
-          <Line />
-        </div>
-
-        <div class="textarea">
-          <input type="search" placeholder="Przypisz notatki">
           <Line />
         </div>
         
@@ -42,12 +31,26 @@
 
       <div class="OtherActivities" :class="{ 'active-blue': mode === 'blue', 'active-green': mode === 'green' }">
         <Line />
-        <p>{{ dateToShow }} - inne plany na wybrany dzień:</p>
-
-        <div v-for="task in tasksForDate()" :key="task.id">
-          <TaskToDo v-if="!task.checked" :task="task" />
-          <TaskDone v-else :task="task" />
+        <p>Zadania przypisane do notatki:</p>
+        <div>
+          <div class="container1">
+              <div class="tick" :class="{ 'active-blue': mode === 'blue', 'active-green': mode === 'green' }">
+                  <input type="checkbox" @change="checked = $event.target.checked" />
+                  <label :style="{ color: checked ? '#a6a6a6' : '#FF9900' }">6:00</label>
+                  <label :style="{ color: checked ? '#a6a6a6' : (mode === 'blue' ? '#0099FF' : '#009900') }">Task 1</label>
+                  <div class="star-wrapper">
+                    <label class="star-label"><i class="fa-solid fa-star" :style="{ color: checked ? '#a6a6a6' : '#FF9900' }"></i></label>
+                  </div>
+                </div>
+                
+              <Line />
+            </div>
         </div>
+
+        <!--<div>
+          <TaskToDo />
+          <TaskDone />
+        </div> pokazuje zadania przypisane do notatek, pokazując również czy są wykonane, czy nie-->
 
       </div>
 
@@ -59,19 +62,17 @@
 
 
 <script>
-import CloseNavbar from './CloseNavbar.vue';
-import TaskToDo from './TaskToDo.vue';
-import TaskDone from './TaskToDo.vue';
+//import TaskToDo from './TaskToDo.vue';
+//import TaskDone from './TaskToDo.vue';
 import Line from './Line.vue';
 import NoteNavbar from './NoteNavbar.vue';
 import { mapMutations, mapState } from 'vuex';
 
 export default {
 components: {
-  CloseNavbar,
   Line,
-  TaskToDo,
-  TaskDone,
+ // TaskToDo,
+  //TaskDone,
   NoteNavbar,
 },
 computed: {
@@ -79,27 +80,11 @@ computed: {
 ...mapState(['mode']),
 },
 data() {
-  return {
-      dateToShow: '',
-      dateToShow: '',
-      checked: false,
-  tasks: [
-    { id: 1, checked: true, content: 'Task 1', hour: '6:00', date: '25.05.2023'},
-    { id: 2, checked: false, content: 'Task 2', hour: '7:00', date: '26.05.2023'},
-    { id: 3, checked: false, content: 'Task 3', hour: '8:00', date: '27.05.2023' },
-  ],
-  };
+return {
+  checked: false,
+};
 },
-methods: {
-  // ...
-  updateDate(event) {
-      let date = new Date(event.target.value);
-      this.dateToShow = date.toLocaleDateString();
-  },
-  tasksForDate() {
-  return this.tasks.filter(task => task.date === this.dateToShow);
-}
-}
+
 };
 </script>
 

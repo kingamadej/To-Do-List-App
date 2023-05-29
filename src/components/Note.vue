@@ -1,22 +1,36 @@
 <template>
-    
+  <div class="container">
     <div class="note">
-        <h3>Tytuł notatki</h3>
-        <h6>Opis notatki do 20 znaków, np. Kwestie do poruszenia podczas spotkania...</h6>
+      {{ note.content }}
     </div>
-    
-</template>
+  </div>
 
-<script></script>
-
-<style scoped>
-.note {
+  </template>
+  
+  <script>
+  import { mapState } from 'vuex';
+  export default {
+    props: {
+      note: {
+        type: Object,
+        required: true
+      }
+    },
+    computed: {
+    ...mapState(['mode'])
+    },
+  };
+  </script>
+  
+  <style scoped>
+  .note {
     border: 1px solid #A6A6A6; 
     border-radius: 15px;
     color: #A6A6A6;
-    width: 300px;
+    width: 290px;
     height: 150px;
     padding: 10px;
     margin: 5px;
 }
-</style>
+  </style>
+  
