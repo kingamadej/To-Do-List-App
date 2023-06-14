@@ -46,6 +46,8 @@ The To-Do List app has been thoughtfully designed to create a stress-free task m
 - <b>Completed Tasks</b> 
 <br>To maintain a clutter-free interface and avoid unnecessary visual distractions, completed tasks are usually displayed in a neutral or faded color. This differentiation allows users to focus on their ongoing and upcoming tasks without being overwhelmed by past accomplishments.
 
+## Documentation
+[Official Vue 3 documentation.](https://vuejs.org/guide/introduction.html)
 
 ## Environment Setup
 - You need Windows 10 or newer
